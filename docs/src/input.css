@@ -7,3 +7,12 @@
         print-color-adjust: exact;
     }
 }
+
+@layer utilities{
+    .bb {
+        border: 1px dashed black;
+    }
+    .bw {
+        border: 1px dashed white;
+    }
+}

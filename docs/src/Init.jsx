@@ -2,21 +2,21 @@ import { useState } from 'react'
 
 export default function Init(){
     return(
-    <form>
+    <form className='flex py-2 gap-x-1'>
       <label>
-        Name of Guest:
+        Name of Guest:&nbsp;
         <input type="text" />
       </label>
       <label>
-        Date:
+        Date:&nbsp;
         <input type="text" />
       </label>
       <label>
-        No. of days:
+        No. of days:&nbsp;
         <input type="text" />
       </label>
       <label htmlFor="">
-        Headcount:
+        Headcount:&nbsp;
         <input type="text" />
       </label>
     </form>

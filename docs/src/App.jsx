@@ -7,8 +7,26 @@ import ImageEntry from './entries/ImageEntry.jsx'
 import Transpo from './entries/Transpo.jsx'
 
 export default function App() {
-  const [entries, setEntries] = useState([<Activity myId={-1}/>])
-  const zzz = "Transpo"
+
+  const [entries, setEntries] = useState(()=>{
+    const newEntry = <Activity passedFunc={removeEntry} myId={generateRandomId()}/>
+      return(
+        [newEntry]
+      )
+  })
+  // const [entries, setEntries] = useState(() => {
+  //   const myId = generateRandomId();
+  //   return (
+  //     {
+  //       id: <Activity passedFunc={removeEntry} myId={myId}/>
+  //     }
+  //   )
+  // })
+
+  // [
+  //   {id},
+  //   {}
+  // ]
 
   function generateRandomId() {
     const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -22,8 +40,10 @@ export default function App() {
     return id;
   }
 
+
   function removeEntry(target){
-    // console.log(`Remove ${target}`)
+    console.log(`Remove ${target}`)
+    // console.log(`Remove test(App)`)
     // setEntries( allEntries =>{
 
     // })
@@ -44,10 +64,16 @@ export default function App() {
   return (
     <>
       <Init />
-      <div className='grid gap-y-2'>
+      <div className='grid gap-y-1'>
       {entries.map( (component, index) => (
         <div key={index} >{component}</div>
       ) )}
+      {/*
+        entries.map( (component, myID)=>{
+          <div key={myID}>{id}
+          </div>
+        } )*/
+      }
       </div>
       {/* <Accommodation />
       <Costing />
@@ -55,13 +81,14 @@ export default function App() {
       <Transpo /> */}
       {/* < /> */}
       
-      <div className='border border-black flex justify-center p-4 gap-x-2'>
-        <button className='bg-green-500 px-4 py-2 rounded-full' onClick={addEntry}>Add New</button>
-        <button className='bg-amber-500 px-4 py-2 rounded-full'>End Day</button>
-        <button className='bg-blue-500 px-4 py-2 rounded-full'>Print Preview</button>
-        <button className='bg-green-500 px-4 py-2 rounded-full'>Save</button>
+      <div className='flex justify-center p-4 border border-black gap-x-2'>
+        <button className='px-4 py-2 bg-green-500 rounded-full' onClick={addEntry}>Add New</button>
+        <button className='px-4 py-2 rounded-full bg-amber-500'>End Day</button>
+        <button className='px-4 py-2 bg-blue-500 rounded-full'>Print Preview</button>
+        <button className='px-4 py-2 bg-green-500 rounded-full'>Save</button>
       </div>
    
     </>
   )
 }
+
