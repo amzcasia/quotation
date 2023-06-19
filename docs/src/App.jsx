@@ -6,13 +6,41 @@ import Costing from './entries/Costing.jsx'
 import ImageEntry from './entries/ImageEntry.jsx'
 import Transpo from './entries/Transpo.jsx'
 
+
+
 export default function App() {
 
+  // const entryData = {
+  //   id:generateRandomId(),
+  //   time:"",
+  //   activity:"",
+  //   note1:"",
+  //   exclusions:"",
+  //   perHead:0,
+  //   costing:0,
+  //   note2:""
+  // }
+
   const [entries, setEntries] = useState(()=>{
-    const newEntry = <Activity passedFunc={removeEntry} myId={generateRandomId()}/>
+    // const newEntry = <Activity passedFunc={removeEntry} myId={generateRandomId()}/>
       return(
-        [newEntry]
+        [generateRandomId()]
       )
+  })
+
+  const [entries2,setEntries2] = useState(()=>{
+    return (
+      [{
+        id:generateRandomId(),
+        time:"",
+        activity:"",
+        note1:"",
+        exclusions:"",
+        perHead:0,
+        costing:0,
+        note2:""
+      }]
+    )
   })
   // const [entries, setEntries] = useState(() => {
   //   const myId = generateRandomId();
@@ -42,44 +70,57 @@ export default function App() {
 
 
   function removeEntry(target){
-    console.log(`Remove ${target}`)
-    // console.log(`Remove test(App)`)
-    // setEntries( allEntries =>{
-
-    // })
-  }
-
-  function addEntry(){
-    setEntries( (allEntries) => {
-      const newEntry = <Activity passedFunc={removeEntry} myId={generateRandomId()}/>
-
+    setEntries( allEntries =>{
+      const currentEntries = [...allEntries]
+      const targetIndex = currentEntries.indexOf(target)
+      currentEntries.splice(targetIndex,1)
+      console.log(currentEntries)
       return(
-        [...allEntries, newEntry]
+        [...currentEntries]
       )
     })
   }
 
+  function addEntry(){
+    setEntries( (allEntries) => {
+      return(
+        [...allEntries, generateRandomId()]
+      )
+    })
 
+  }
+
+  const entriesMap = entries.map( (allEntries)=>{
+    return(
+      <Activity  
+        key={allEntries} 
+        passedFunc={removeEntry} 
+        myId={allEntries}
+      />
+    )
+  })
+
+  const entriesMap2 = entries2.map( (allEntries)=>{
+    return(
+      <Activity  
+        key={allEntries.id} 
+        passedFunc={removeEntry} 
+        myId={allEntries.id}
+      />
+    )
+  })
 
   return (
     <>
       <Init />
       <div className='grid gap-y-1'>
-      {entries.map( (component, index) => (
-        <div key={index} >{component}</div>
-      ) )}
-      {/*
-        entries.map( (component, myID)=>{
-          <div key={myID}>{id}
-          </div>
-        } )*/
-      }
+        {entriesMap}
       </div>
-      {/* <Accommodation />
-      <Costing />
-      <ImageEntry />
-      <Transpo /> */}
-      {/* < /> */}
+
+      <div className='grid gap-y-1'>
+        {/* {entriesMap2} */}
+      </div>
+
       
       <div className='flex justify-center p-4 border border-black gap-x-2'>
         <button className='px-4 py-2 bg-green-500 rounded-full' onClick={addEntry}>Add New</button>
