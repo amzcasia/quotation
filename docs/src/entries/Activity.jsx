@@ -45,7 +45,7 @@ export default function Activity(props){
 
     return (
         <form onSubmit={handleSubmit} className='grid grid-cols-12 py-1 gap-y-1 gap-x-1'>
-            <label className='col-span-12'>Activity Entry [{props.myId}]</label>
+            {/* <label className='col-span-12'>Activity Entry [{props.myId}]</label> */}
             <label className='flex flex-col gap-y-1'>
                 <span>Time:</span>
                 {/* <input className="w-full" type="time" disabled={isDisabled} /> */}
@@ -113,8 +113,8 @@ export default function Activity(props){
 
             </label>
             <label className='grid content-start gap-y-1'>
-                <span>Costing</span>
-                <input className='w-full number-input disabled:bg-primary disabled:bb' type="number"
+                <span>Costing (Php)</span>
+                <input className='w-full px-1 text-right number-input disabled:bg-primary disabled:bb' type="number"
                     value={props.entries[findMyIndex(props.myId)]['costing']}
                     onChange={ (e)=>{
                         props.setEntries( (allEntries) =>{

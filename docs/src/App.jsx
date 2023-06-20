@@ -1,5 +1,7 @@
 import { useState } from 'react'
+import Header from './Header.jsx'
 import Init from './Init.jsx'
+import DayComponent from './DayComponent.jsx'
 import Activity from './entries/Activity.jsx'
 import Accommodation from './entries/Accommodation.jsx'
 import Costing from './entries/Costing.jsx'
@@ -111,10 +113,13 @@ export default function App() {
   return (
     <>
       <Init />
-
-      <div className='grid gap-y-1'>
+      <Header />
+      <DayComponent>
         {entriesMap}
-      </div>
+      </DayComponent>
+      {/* <div className='grid gap-y-1'>
+        {entriesMap}
+      </div> */}
 
       <div className='flex justify-center p-4 border border-black gap-x-2'>
         <button className='px-4 py-2 bg-green-500 rounded-full' onClick={addEntry}>Add New</button>
