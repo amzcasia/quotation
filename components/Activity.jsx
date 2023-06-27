@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { getMyIndex } from '../globalFunctions';
+import { getMyIndex } from '../helpers/globalFunctions';
 import ButtonGroup from './ButtonGroup';
 import EntryTextArea from './EntryTextArea';
 
@@ -45,7 +45,7 @@ export default function Activity( {dayIndex, entryIndex, entryId, time, activity
     };
 
     return (
-        <form onSubmit={handleSubmit} className='grid grid-cols-12 py-1 gap-y-1 gap-x-1'>
+        <form onSubmit={handleSubmit} className='grid grid-cols-12 py-1 gap-y-1 gap-x-1 print:grid-cols-6'>
             <label className='col-span-12'>Activity Entry [{entryId}]</label>
             
             <label className='flex flex-col gap-y-1'>
@@ -106,61 +106,62 @@ export default function Activity( {dayIndex, entryIndex, entryId, time, activity
                 />
             </label>                
             
-            
-            <label className='flex flex-col gap-y-1'>
-                <span>Per Head:</span>
-                <input className='w-full px-1 text-right number-input disabled:bg-primary disabled:bb' type="number"
-                    //value={props.entries[findMyIndex(props.myId)]['time']}
-                    value={days[dayIndex].dayEntries[entryIndex]['perHead']}
-                    onChange={ (e)=>{
-                        setDays( (allDays)=>{
-                            const currentDays =  [...allDays]
-                            currentDays[dayIndex].dayEntries[entryIndex]['perHead'] = e.target.value
-                            return [...currentDays]
-                        })
-                    }}
-                    disabled={isDisabled} 
-                />
-            </label>
+            <div className='grid grid-cols-6 col-span-6 gap-x-1 print:hidden'>
+                <label className='flex flex-col gap-y-1'>
+                    <span>Per Head:</span>
+                    <input className='w-full px-1 text-right number-input disabled:bg-primary disabled:bb' type="number"
+                        //value={props.entries[findMyIndex(props.myId)]['time']}
+                        value={days[dayIndex].dayEntries[entryIndex]['perHead']}
+                        onChange={ (e)=>{
+                            setDays( (allDays)=>{
+                                const currentDays =  [...allDays]
+                                currentDays[dayIndex].dayEntries[entryIndex]['perHead'] = e.target.value
+                                return [...currentDays]
+                            })
+                        }}
+                        disabled={isDisabled} 
+                    />
+                </label>
 
-            <label className='flex flex-col gap-y-1'>
-                <span>Costing:</span>
-                <input className='w-full px-1 text-right number-input disabled:bg-primary disabled:bb' type="number"
-                    //value={props.entries[findMyIndex(props.myId)]['time']}
-                    value={days[dayIndex].dayEntries[entryIndex]['costing']}
-                    onChange={ (e)=>{
-                        setDays( (allDays)=>{
-                            const currentDays =  [...allDays]
-                            currentDays[dayIndex].dayEntries[entryIndex]['costing'] = e.target.value
-                            return [...currentDays]
-                        })
-                    }}
-                    disabled={isDisabled} 
-                />
-            </label>
+                <label className='flex flex-col gap-y-1'>
+                    <span>Costing:</span>
+                    <input className='w-full px-1 text-right number-input disabled:bg-primary disabled:bb' type="number"
+                        //value={props.entries[findMyIndex(props.myId)]['time']}
+                        value={days[dayIndex].dayEntries[entryIndex]['costing']}
+                        onChange={ (e)=>{
+                            setDays( (allDays)=>{
+                                const currentDays =  [...allDays]
+                                currentDays[dayIndex].dayEntries[entryIndex]['costing'] = e.target.value
+                                return [...currentDays]
+                            })
+                        }}
+                        disabled={isDisabled} 
+                    />
+                </label>
 
-            <label className='grid content-start col-span-3 gap-y-1'>
-                <span>Notes:</span>
-                <EntryTextArea 
-                    entryId={entryId}
-                    dayIndex={dayIndex}
-                    entryIndex={entryIndex}
-                    inputType={'notes2'}
+                <label className='grid content-start col-span-3 gap-y-1'>
+                    <span>Notes:</span>
+                    <EntryTextArea 
+                        entryId={entryId}
+                        dayIndex={dayIndex}
+                        entryIndex={entryIndex}
+                        inputType={'notes2'}
+                        days={days}
+                        setDays={setDays}
+                        disabled={isDisabled} 
+                    />
+                </label>
+
+                
+                
+                <ButtonGroup 
+                    toggleDisabled={toggleDisabled}
                     days={days}
                     setDays={setDays}
-                    disabled={isDisabled} 
+                    dayIndex={dayIndex}
+                    entryIndex={entryIndex}
                 />
-            </label>
-
-            
-            
-            <ButtonGroup 
-                toggleDisabled={toggleDisabled}
-                days={days}
-                setDays={setDays}
-                dayIndex={dayIndex}
-                entryIndex={entryIndex}
-            />
+            </div>
         
             
             

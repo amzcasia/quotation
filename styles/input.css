@@ -3,9 +3,7 @@
 @tailwind utilities;
 
 @layer base {
-    @media print {
-        print-color-adjust: exact;
-    }
+    
 }
 
 @layer utilities{
@@ -24,5 +22,14 @@
 
     .number-input {
     -moz-appearance: textfield;
+    }
+}
+
+@media print {
+    *{
+        print-color-adjust: exact;
+    }
+    .print-button{
+        background-color: blue;
     }
 }

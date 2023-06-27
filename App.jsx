@@ -1,13 +1,13 @@
 import { useState } from 'react'
-import {randomId} from './globalFunctions'
-import Header from './Header.jsx'
-import Init from './Init.jsx'
-import DayComponent from './DayComponent.jsx'
-import Activity from './entries/Activity.jsx'
-import Accommodation from './entries/Accommodation.jsx'
-import Costing from './entries/Costing.jsx'
-import ImageEntry from './entries/ImageEntry.jsx'
-import Transpo from './entries/Transpo.jsx'
+import {randomId} from './helpers/globalFunctions' //globalFunctions'
+import Header from './components/Header'
+import Init from './components/Init'
+import DayComponent from './components/DayComponent'
+import Activity from './components/Activity.jsx'
+import Accommodation from './components/Accommodation.jsx'
+import Costing from './components/Costing.jsx'
+import ImageEntry from './components/ImageEntry.jsx'
+import Transpo from './components/Transpo.jsx'
 
 
 
@@ -89,11 +89,9 @@ export default function App() {
 
   return (
     <>
-
-
       {daysMap}
 
-      <div className='flex justify-center p-4 border border-black gap-x-2'>
+      <div className='flex justify-center p-4 border border-black gap-x-2 print:hidden'>
         <button className='px-4 py-2 bg-green-400 border border-black rounded-full' onClick={addEntryToEnd}>Add Entry</button>
         <button className='px-4 py-2 bg-orange-300 border border-black rounded-full' onClick={addDay}>Add Day</button>
         <button className='px-4 py-2 border border-black rounded-full cursor-default '>End Day</button>

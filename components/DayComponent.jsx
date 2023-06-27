@@ -1,43 +1,8 @@
 import React, { useState } from 'react'
-import { randomId } from './globalFunctions'
-import Activity from './entries/Activity'
+import { randomId } from '../helpers/globalFunctions'
+import Activity from './Activity'
 
 export default function DayComponent ({dayIndex, days, dayId, setDays}){
-
-    /*
-    key={day.dayId}
-    day={day}
-    dayId={day.dayId}
-    setDays={setDays}
-    entries={day.dayEntries}
-    setEntries={setEntries}
-
-    key={entry.entryId}
-    time={entry.time}
-    activity={entry.activity}
-    notes1={entry.notes1}
-    exclusions={entry.exclusions}
-    perHead={entry.perHead}
-    costing={entry.costing}
-    notes2={entry.notes2}
-    days={days}
-    setDays={setDays}
-
-    days = [{
-        dayId:randomId(),
-        dayEntries: [{
-            entryId:randomId(),
-            time:"",
-            activity:"",
-            notes1:"",
-            exclusions:"",
-            perHead:0,
-            costing:0,
-            notes2:""
-        }]
-    }]
-
-    */
 
     function removeDay (){
         setDays( allDays =>{
@@ -118,8 +83,10 @@ export default function DayComponent ({dayIndex, days, dayId, setDays}){
                 <span className='col-span-2 text-lg'>June 19, 2023</span>
                 <span className='text-lg'>Monday</span>
                 {/* <span className='col-span-7'></span> */}
-                <button onClick={addEntry} className='bg-green-400' type="button">Add Entry</button>
-                <button onClick={removeDay} className='bg-red-400' type="button">Remove Day</button>
+                <div className="grid grid-cols-2 col-span-2 print:hidden gap-x-2">
+                    <button onClick={addEntry} className='bg-green-400' type="button">Add Entry</button>
+                    <button onClick={removeDay} className='bg-red-400' type="button">Remove Day</button>
+                </div>
             </div>
             <div >
                 {entriesMap}

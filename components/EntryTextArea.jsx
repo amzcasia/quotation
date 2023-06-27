@@ -1,4 +1,4 @@
-import { getMyIndex } from "../globalFunctions"
+import { getMyIndex } from "../helpers/globalFunctions"
 
 export default function TextArea({entryId, dayIndex, entryIndex, inputType, days, setDays, disabled}){
     const autoResize = (event) => {

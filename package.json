@@ -1,18 +1,22 @@
 {
-  "name": "docs",
+  "name": "src",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --host",
     "build": "vite build",
     "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview",
-    "tailwindcss":"npx tailwindcss -i ./src/input.css -o ./dist/output.css --watch"
+    "preview": "vite preview --host",
+    "tailwindcss": "npx tailwindcss -i ./styles/input.css -o ./styles/output.css --watch",
+    "add": "git add -f dist",
+    "commit" : "git commit -m update build files",
+    "push" : "git push origin main"
   },
   "dependencies": {
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.13.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.37",
