@@ -3,35 +3,6 @@ import { getMyIndex } from '../helpers/globalFunctions';
 import ButtonGroup from './ButtonGroup';
 import EntryTextArea from './EntryTextArea';
 
-/*
-
-    key={entry.entryId}
-    time={entry.time}
-    activity={entry.activity}
-    notes1={entry.notes1}
-    exclusions={entry.exclusions}
-    perHead={entry.perHead}
-    costing={entry.costing}
-    notes2={entry.notes2}
-    days={days}
-    setDays={setDays}
-
-    days = [{
-        dayId:randomId(),
-        dayEntries: [{
-            entryId:randomId(),
-            time:"",
-            activity:"",
-            notes1:"",
-            exclusions:"",
-            perHead:0,
-            costing:0,
-            notes2:""
-        }]
-    }]
-
-*/
-
 export default function Activity( {dayIndex, entryIndex, entryId, time, activity, notes1, exclusions, perHead, costing, notes2, days, setDays}){
 
     const [isDisabled, setIsDisabled] = useState(false);
@@ -46,10 +17,10 @@ export default function Activity( {dayIndex, entryIndex, entryId, time, activity
 
     return (
         <form onSubmit={handleSubmit} className='grid grid-cols-12 py-1 gap-y-1 gap-x-1 print:grid-cols-6'>
-            <label className='col-span-12'>Activity Entry [{entryId}]</label>
+            <label className='hidden col-span-12'>Activity Entry [{entryId}]</label>
             
             <label className='flex flex-col gap-y-1'>
-                <span>Time:</span>
+                <span className='h-[24px] print:hidden'></span>
                 <input className='w-full px-1 number-input disabled:bg-primary disabled:bb' type="time"
                     value={days[dayIndex].dayEntries[entryIndex]['time']}
                     onChange={ (e)=>{
@@ -63,9 +34,9 @@ export default function Activity( {dayIndex, entryIndex, entryId, time, activity
                 />
             </label>
             
-            <div className='flex flex-col col-span-3 gap-y-1'>  
+            <div className='flex flex-col col-span-5 gap-y-1'>  
                 <label className='grid gap-y-1'>
-                    <span>Activity:</span>
+                    <span className='h-[24px] print:hidden'></span>
                     <EntryTextArea 
                         entryId={entryId}
                         dayIndex={dayIndex}
@@ -77,8 +48,8 @@ export default function Activity( {dayIndex, entryIndex, entryId, time, activity
                     />
                 </label>
                 
-                <label className='grid gap-y-1'>
-                    <span>Notes:</span>
+                <label className='grid hidden gap-y-1'>
+                    {/* <span>Note:</span> */}
                     <EntryTextArea 
                         entryId={entryId}
                         dayIndex={dayIndex}
@@ -87,13 +58,14 @@ export default function Activity( {dayIndex, entryIndex, entryId, time, activity
                         days={days}
                         setDays={setDays}
                         disabled={isDisabled} 
+                        placeHolder={''}
                     />
                 </label>
             </div>
 
 
 
-            <label className='grid content-start w-full col-span-2 gap-y-1'>
+            <label className='grid content-start hidden w-full col-span-2 gap-y-1'>
                 <span>Exclusions:</span>
                 <EntryTextArea 
                     entryId={entryId}

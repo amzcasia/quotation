@@ -3,15 +3,20 @@ import { getMyIndex } from "../helpers/globalFunctions"
 export default function TextArea({entryId, dayIndex, entryIndex, inputType, days, setDays, disabled}){
     const autoResize = (event) => {
         event.target.style.height = 'auto'
-        event.target.style.height = event.target.scrollHeight + 'px'
+        console.log(event.target.scrollHeight)
+        let offset = 0
+        if(event.target.scrollHeight < 200){
+            offset = 0
+        }
+        else if (event.target.scrollHeight >= 200 && event.target.scrollHeight < 550){
+            offset = 24;
+        }else{
+            offset = 48;
+        }
+        event.target.style.height = event.target.scrollHeight + offset + 'px'
     }
 
     const handleChange = (e) =>{
-        // setEntries( (allEntries) =>{
-        //     const currentEntries = [...allEntries]
-        //     currentEntries[getMyIndex(entryId)][inputType] = e.target.value
-        //     return ([...currentEntries])
-        // })
         setDays( (allDays)=>{
             const currentDays =  [...allDays]
             currentDays[dayIndex].dayEntries[entryIndex][inputType] = e.target.value
@@ -21,12 +26,12 @@ export default function TextArea({entryId, dayIndex, entryIndex, inputType, days
     
     return (
         <textarea 
-            className='px-1 overflow-auto resize-none disabled:bg-primary disabled:bb' 
+            className='px-1 overflow-hidden resize-none print:overflow-hidden disabled:bg-primary disabled:bb' 
             value={days[dayIndex].dayEntries[entryIndex][inputType]} 
             onChange={handleChange} 
             disabled={disabled} 
             onInput={autoResize} 
-            rows={3}>
+            rows={1}>
         </textarea>
     )
 }

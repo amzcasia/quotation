@@ -1,6 +1,6 @@
 export default function Header(){
     return(
-        <div className="grid grid-cols-12 py-10 text-lg">
+        <div className="grid grid-cols-12 py-10 text-lg print:grid-cols-6">
             <div className="flex items-center justify-between col-span-6">
                 <div>
                     <img className="max-h-[100px]" src="./src/assets/brand-logo.png" alt="" />

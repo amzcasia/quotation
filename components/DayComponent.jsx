@@ -59,6 +59,7 @@ export default function DayComponent ({dayIndex, days, dayId, setDays}){
     const entriesMap = days[dayIndex].dayEntries.map( (entry,index)=>{
         return(
             <Activity 
+                type={'activity'}
                 key={entry.entryId}
                 dayIndex={dayIndex}
                 entryIndex={index}
@@ -83,6 +84,7 @@ export default function DayComponent ({dayIndex, days, dayId, setDays}){
                 <span className='col-span-2 text-lg'>June 19, 2023</span>
                 <span className='text-lg'>Monday</span>
                 {/* <span className='col-span-7'></span> */}
+
                 <div className="grid grid-cols-2 col-span-2 print:hidden gap-x-2">
                     <button onClick={addEntry} className='bg-green-400' type="button">Add Entry</button>
                     <button onClick={removeDay} className='bg-red-400' type="button">Remove Day</button>

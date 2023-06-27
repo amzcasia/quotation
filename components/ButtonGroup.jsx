@@ -51,13 +51,13 @@ export default function ButtonGroup({toggleDisabled, days, setDays, dayIndex, en
 
     return(
         <div className='flex flex-col gap-1'>
-            <button type="button" className='block px-2 py-2 bg-yellow-400' onClick={toggleDisabled}>Edit</button>
-            <button className='block px-2 py-2 bg-red-400' onClick={handleRemove} type="button">Remove</button>
+            <button type="button" className='block px-2 py-1 bg-yellow-400' onClick={toggleDisabled}>Edit</button>
+            <button className='block px-2 py-1 bg-red-400' onClick={handleRemove} type="button">Remove</button>
             <button onClick={handleUp} type="button" 
-                className='block px-2 py-2 bg-blue-400'>
+                className='block px-2 py-1 bg-blue-400'>
                     Up
             </button>
-           <button onClick={handleDown} type="button" className='block px-2 py-2 bg-blue-400'>Down</button>
+           <button onClick={handleDown} type="button" className='block px-2 py-1 bg-blue-400'>Down</button>
         </div>
     )
 }
