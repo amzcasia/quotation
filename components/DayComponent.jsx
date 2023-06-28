@@ -78,7 +78,7 @@ export default function DayComponent ({dayIndex, days, dayId, setDays}){
     })
     
     return(
-        <div className="grid gap-y-1">
+        <div className="grid gap-y-1 px-[1%]">
             <div className='grid content-center grid-cols-12 py-1 gap-x-2'>
                 <span className='text-lg font-semibold'>Day {dayIndex+1}</span>
                 <span className='col-span-2 text-lg'>June 19, 2023</span>
@@ -89,8 +89,12 @@ export default function DayComponent ({dayIndex, days, dayId, setDays}){
                     <button onClick={addEntry} className='bg-green-400' type="button">Add Entry</button>
                     <button onClick={removeDay} className='bg-red-400' type="button">Remove Day</button>
                 </div>
+                { (dayIndex == 0) && <span className="">perHead</span>}
+                { (dayIndex == 0) && <span className="">Costing</span>}
+                { (dayIndex == 0) && <span className="">Notes</span>}
+                
             </div>
-            <div >
+            <div className=''>
                 {entriesMap}
             </div>
 

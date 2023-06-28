@@ -20,7 +20,7 @@ export default function Activity( {dayIndex, entryIndex, entryId, time, activity
             <label className='hidden col-span-12'>Activity Entry [{entryId}]</label>
             
             <label className='flex flex-col gap-y-1'>
-                <span className='h-[24px] print:hidden'></span>
+                {/* <span className='h-[24px] print:hidden'></span> */}
                 <input className='w-full px-1 number-input disabled:bg-primary disabled:bb' type="time"
                     value={days[dayIndex].dayEntries[entryIndex]['time']}
                     onChange={ (e)=>{
@@ -36,7 +36,7 @@ export default function Activity( {dayIndex, entryIndex, entryId, time, activity
             
             <div className='flex flex-col col-span-5 gap-y-1'>  
                 <label className='grid gap-y-1'>
-                    <span className='h-[24px] print:hidden'></span>
+                    {/* <span className='h-[24px] print:hidden'></span> */}
                     <EntryTextArea 
                         entryId={entryId}
                         dayIndex={dayIndex}
@@ -48,7 +48,7 @@ export default function Activity( {dayIndex, entryIndex, entryId, time, activity
                     />
                 </label>
                 
-                <label className='grid hidden gap-y-1'>
+                <label className='hidden gap-y-1'>
                     {/* <span>Note:</span> */}
                     <EntryTextArea 
                         entryId={entryId}
@@ -80,7 +80,7 @@ export default function Activity( {dayIndex, entryIndex, entryId, time, activity
             
             <div className='grid grid-cols-6 col-span-6 gap-x-1 print:hidden'>
                 <label className='flex flex-col gap-y-1'>
-                    <span>Per Head:</span>
+                    {/* <span>Per Head:</span> */}
                     <input className='w-full px-1 text-right number-input disabled:bg-primary disabled:bb' type="number"
                         //value={props.entries[findMyIndex(props.myId)]['time']}
                         value={days[dayIndex].dayEntries[entryIndex]['perHead']}
@@ -96,7 +96,7 @@ export default function Activity( {dayIndex, entryIndex, entryId, time, activity
                 </label>
 
                 <label className='flex flex-col gap-y-1'>
-                    <span>Costing:</span>
+                    {/* <span>Costing:</span> */}
                     <input className='w-full px-1 text-right number-input disabled:bg-primary disabled:bb' type="number"
                         //value={props.entries[findMyIndex(props.myId)]['time']}
                         value={days[dayIndex].dayEntries[entryIndex]['costing']}
@@ -112,7 +112,7 @@ export default function Activity( {dayIndex, entryIndex, entryId, time, activity
                 </label>
 
                 <label className='grid content-start col-span-3 gap-y-1'>
-                    <span>Notes:</span>
+                    {/* <span>Notes:</span> */}
                     <EntryTextArea 
                         entryId={entryId}
                         dayIndex={dayIndex}

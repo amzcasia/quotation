@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { randomId } from "../helpers/globalFunctions"; //globalFunctions'
 import DayComponent from "../components/DayComponent";
+import QuotationHeader from "../components/QuotationHeader";
 
-export default function Home() {
+export default function Quotation() {
   const [days, setDays] = useState(() => {
     return [{
         dayId: randomId(),
@@ -83,7 +84,8 @@ export default function Home() {
   });
 
   return (
-    <>
+    <> 
+      <QuotationHeader />
       {daysMap}
 
       <div className="flex justify-center p-4 border border-black gap-x-2 print:hidden">
