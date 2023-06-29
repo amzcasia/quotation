@@ -1,0 +1,64 @@
+{
+  "sampleDay": [
+    {
+      "dayId": "Rg5bF3",
+      "dayEntries": [
+        {
+          "entryId": "p1KcQ9",
+          "type": "Type 1",
+          "time": "9:00 AM",
+          "activity": "Activity 1",
+          "notes1": "Note 1",
+          "exclusions": "Exclusion 1",
+          "perHead": 10,
+          "costing": 100,
+          "notes2": "Additional Note 1"
+        },
+        {
+          "entryId": "X2sYhL",
+          "type": "Type 2",
+          "time": "2:00 PM",
+          "activity": "Activity 2",
+          "notes1": "Note 2",
+          "exclusions": "Exclusion 2",
+          "perHead": 5,
+          "costing": 50,
+          "notes2": "Additional Note 2"
+        },
+        {
+          "entryId": "zD7kV8",
+          "type": "Type 3",
+          "time": "5:00 PM",
+          "activity": "Activity 3",
+          "notes1": "Note 3",
+          "exclusions": "Exclusion 3",
+          "perHead": 8,
+          "costing": 80,
+          "notes2": "Additional Note 3"
+        },
+        {
+          "entryId": "E9tMq6",
+          "type": "Type 4",
+          "time": "10:00 AM",
+          "activity": "Activity 4",
+          "notes1": "Note 4",
+          "exclusions": "Exclusion 4",
+          "perHead": 12,
+          "costing": 120,
+          "notes2": "Additional Note 4"
+        },
+        {
+          "entryId": "S6fRd2",
+          "type": "Type 5",
+          "time": "3:00 PM",
+          "activity": "Activity 5",
+          "notes1": "Note 5",
+          "exclusions": "Exclusion 5",
+          "perHead": 6,
+          "costing": 60,
+          "notes2": "Additional Note 5"
+        }
+      ]
+    }
+  ]
+}

@@ -52,7 +52,7 @@ export default function Home() {
       if (counter != 0) return [...allDays]
       counter++;
       const dayIndex = allDays.length - 1;
-      console.log(dayIndex);
+      // console.log(dayIndex);
       const blankEntry = {
         entryId: randomId(),
         type: "",

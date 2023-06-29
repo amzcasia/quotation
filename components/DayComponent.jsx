@@ -1,9 +1,24 @@
-import React, { useState } from 'react'
+import React, { useState, useContext, createContext } from 'react'
 import { randomId } from '../helpers/globalFunctions'
 import Activity from './Activity'
 
-export default function DayComponent ({dayIndex, days, dayId, setDays}){
+// export const EntryFocusContext = createContext();
 
+export default function DayComponent ({dayIndex, days, dayId, setDays}){
+    
+    // const [focusedEntry, setFocusedEntry] = useState({})
+
+    // function handleChangeFocus(entryId){
+    //     setFocusedEntry ( (prevFocusedEntries) => {
+    //         const currentFocusedEntries = {...prevFocusedEntries}
+    //         for(let i = 0; i < days[dayIndex].dayEntries.length; i++){
+    //             currentFocusedEntries[days[dayIndex].dayEntries[i].entryId] = false
+    //         }
+    //         currentFocusedEntries[entryId] = true
+    //         return currentFocusedEntries
+    //     })
+    // }
+    
     function removeDay (){
         setDays( allDays =>{
             const currentDays = [...allDays]
@@ -35,27 +50,6 @@ export default function DayComponent ({dayIndex, days, dayId, setDays}){
         });
     }
       
-
-    // const addEntry = () => {
-    //     const newEntry = {
-    //       entryId: randomId(),
-    //       time: "",
-    //       activity: "",
-    //       notes1: "",
-    //       exclusions: "",
-    //       perHead: 0,
-    //       costing: 0,
-    //       notes2: "",
-    //     };
-      
-    //     setDays((prevDays) => {
-    //       const updatedDays = [...prevDays];
-    //       updatedDays[0].dayEntries.push(newEntry);
-    //       return updatedDays;
-    //     });
-    //   };
-      
-    // const myIndex = getMyIndex(days,'dayId',dayId)
     const entriesMap = days[dayIndex].dayEntries.map( (entry,index)=>{
         return(
             <Activity 
@@ -78,10 +72,10 @@ export default function DayComponent ({dayIndex, days, dayId, setDays}){
     })
     
     return(
-        <div className="grid gap-y-1 px-[1%]">
-            <div className='grid content-center grid-cols-12 py-1 gap-x-2'>
+        <div className="grid gap-y-1">
+            <div className='grid content-center grid-cols-11 py-1 gap-x-2 px-[1%]'>
                 <span className='text-lg font-semibold'>Day {dayIndex+1}</span>
-                <span className='col-span-2 text-lg'>June 19, 2023</span>
+                <span className='col-span-2 text-lg print:col-span-3'>June 19, 2023</span>
                 <span className='text-lg'>Monday</span>
                 {/* <span className='col-span-7'></span> */}
 
@@ -89,17 +83,15 @@ export default function DayComponent ({dayIndex, days, dayId, setDays}){
                     <button onClick={addEntry} className='bg-green-400' type="button">Add Entry</button>
                     <button onClick={removeDay} className='bg-red-400' type="button">Remove Day</button>
                 </div>
-                { (dayIndex == 0) && <span className="">perHead</span>}
-                { (dayIndex == 0) && <span className="">Costing</span>}
-                { (dayIndex == 0) && <span className="">Notes</span>}
-                
+                { (dayIndex == 0) && <span className="print:hidden">perHead</span>}
+                { (dayIndex == 0) && <span className="print:hidden">Costing</span>}
+                { (dayIndex == 0) && <span className="print:hidden">Notes</span>}
             </div>
-            <div className=''>
+            <div>
+                {/* <EntryFocusContext.Provider value={{focusedEntry,setFocusedEntry,handleChangeFocus}}> */}
                 {entriesMap}
+                {/* </EntryFocusContext.Provider> */}
             </div>
-
-
-            
         </div>
     )
 }

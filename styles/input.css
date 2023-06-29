@@ -33,3 +33,8 @@
         background-color: blue;
     }
 }
+
+input[type="time"]::-webkit-calendar-picker-indicator {
+    display: none;
+  }
+  
